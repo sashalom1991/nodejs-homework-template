@@ -7,7 +7,7 @@ const app = require('../../app');
 
 describe('test users', () => {
   let server;
-  beforeAll(() => (server = app.listen(7770)));
+  beforeAll(() => (server = app.listen(3000)));
   afterAll(() => server.close());
 
   beforeEach(done => {
@@ -20,8 +20,7 @@ describe('test users', () => {
 
   test('test login route', async () => {
     const loginDate = {
-      email: 'veider@gmail.com',
-      password: '123456z',
+      
     };
     const response = await request(app)
       .post('/api/users/login')
