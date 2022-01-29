@@ -8,7 +8,7 @@ const { joiSchema } = require('../../models/contact');
 
 router.get('/', authenticate, async (req, res, next) => {
   try {
-    console.log(req.query);
+    // console.log(req.query);
     const { page = 1, limit = 20, favorite = true } = req.query;
     const skip = (page - 1) * limit;
 
@@ -24,7 +24,7 @@ router.get('/', authenticate, async (req, res, next) => {
 });
 
 router.get('/:id', authenticate, async (req, res, next) => {
-  console.log(req.params);
+  // console.log(req.params);
   const { id } = req.params;
   try {
     const contact = await Contact.findById(id);
@@ -63,7 +63,7 @@ router.post('/', authenticate, async (req, res, next) => {
 router.delete('/:id', authenticate, async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    // console.log(id);
     const deleteContact = await Contact.findByIdAndRemove(id);
     if (!deleteContact) {
       throw new NotFound();
